@@ -5,6 +5,14 @@ RSpec.describe Place, type: :model do
 
   let(:place) { FactoryBot.build(:place) }
 
+  describe 'association' do
+    describe 'events' do
+      let(:attribute_name) { :events }
+
+      it { is_expected.to have_many(attribute_name) }
+    end
+  end
+
   describe 'validation' do
     describe 'name' do
       let(:attribute_name) { :name }

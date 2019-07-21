@@ -5,6 +5,14 @@ RSpec.describe Event, type: :model do
 
   let(:event) { FactoryBot.build(:event) }
 
+  describe 'association' do
+    describe 'place' do
+      let(:attribute_name) { :place }
+
+      it { is_expected.to belong_to(attribute_name) }
+    end
+  end
+
   describe 'validation' do
     describe 'name' do
       let(:attribute_name) { :name }
