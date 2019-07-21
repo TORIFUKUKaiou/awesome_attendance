@@ -6,5 +6,7 @@ class CreateAttendances < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_index :attendances, [:user_id, :event_id], unique: true
   end
 end

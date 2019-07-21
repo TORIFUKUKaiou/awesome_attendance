@@ -18,4 +18,12 @@ RSpec.describe Attendance, type: :model do
       it { is_expected.to belong_to(attribute_name) }
     end
   end
+
+  describe 'validation' do
+    describe 'user' do
+      let(:attribute_name) { :user }
+
+      it { is_expected.to validate_uniqueness_of(attribute_name).scoped_to(:event_id) }
+    end
+  end
 end
