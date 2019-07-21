@@ -66,4 +66,10 @@ group :development, :test do
   gem 'rubocop', '0.73.0', require: false
   gem 'rubocop-rspec', '1.33.0'
   gem 'rubocop-performance', '1.4.0'
+
+  # Test
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'shoulda-matchers', '~> 4.0.1'
 end
