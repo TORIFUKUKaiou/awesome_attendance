@@ -5,6 +5,8 @@ class User < ApplicationRecord
   belongs_to :org
   has_many :attendances, dependent: :destroy
 
+  delegate :name, to: :org, prefix: true, allow_nil: false
+
   validates :name, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, length: { maximum: 255 },
@@ -13,4 +15,8 @@ class User < ApplicationRecord
   validates :code, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   has_secure_password
+
+  def uri_for_qrcode
+    "awesomeattendance://awesomehost/#{code}"
+  end
 end

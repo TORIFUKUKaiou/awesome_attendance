@@ -2,7 +2,7 @@ class Api::V1::AttendancesController < Api::V1::ApiController
   def create
     attendance = Attendance.new(create_params)
     if attendance.save
-      render json: { org: attendance.user.org.name, name: attendance.user.name }
+      render json: { org: attendance.user.org_name, name: attendance.user.name }
     else
       render json: {}, status: :bad_request
     end

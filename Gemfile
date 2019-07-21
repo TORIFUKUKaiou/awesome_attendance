@@ -76,3 +76,5 @@ end
 
 gem 'bcrypt', '3.1.13'
 gem 'bootstrap-sass', '3.4.1'
+gem 'rqrcode', '0.10.1'
+gem 'jquery-rails', '4.3.5'
