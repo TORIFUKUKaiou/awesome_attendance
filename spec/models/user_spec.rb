@@ -11,6 +11,12 @@ RSpec.describe User, type: :model do
 
       it { is_expected.to belong_to(attribute_name) }
     end
+
+    describe 'attendances' do
+      let(:attribute_name) { :attendances }
+
+      it { is_expected.to have_many(attribute_name) }
+    end
   end
 
   describe 'validation' do

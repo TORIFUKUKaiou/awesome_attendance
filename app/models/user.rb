@@ -2,6 +2,7 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase }
 
   belongs_to :org
+  has_many :attendances, dependent: :destroy
 
   validates :name, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
