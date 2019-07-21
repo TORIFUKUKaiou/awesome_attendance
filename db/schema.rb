@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_21_023050) do
+ActiveRecord::Schema.define(version: 2019_07_21_063906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_07_21_023050) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "org_id"
+    t.string "remember_digest"
     t.index ["code"], name: "index_users_on_code", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["org_id"], name: "index_users_on_org_id"
