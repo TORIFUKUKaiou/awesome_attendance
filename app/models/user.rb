@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   before_save { self.email = email.downcase }
+  before_create { self.code = SecureRandom.base64 }
 
   belongs_to :org
   has_many :attendances, dependent: :destroy
