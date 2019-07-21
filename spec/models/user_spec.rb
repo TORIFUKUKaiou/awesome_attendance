@@ -5,6 +5,14 @@ RSpec.describe User, type: :model do
 
   let(:user) { FactoryBot.build(:user) }
 
+  describe 'association' do
+    describe 'org' do
+      let(:attribute_name) { :org }
+
+      it { is_expected.to belong_to(attribute_name) }
+    end
+  end
+
   describe 'validation' do
     describe 'email' do
       let(:attribute_name) { :email }
