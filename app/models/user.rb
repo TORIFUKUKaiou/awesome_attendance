@@ -1,6 +1,6 @@
 class User < ApplicationRecord
+  before_validation :set_code, if: proc { |u| u.new_record? }
   before_save { self.email = email.downcase }
-  before_create { self.code = SecureRandom.base64 }
 
   belongs_to :org
   has_many :attendances, dependent: :destroy
@@ -60,5 +60,13 @@ class User < ApplicationRecord
 
   def uri_for_qrcode
     "awesomeattendance://awesomehost/#{code}"
+  end
+
+  private
+
+  def set_code
+    return if code
+
+    self.code = User.new_token
   end
 end

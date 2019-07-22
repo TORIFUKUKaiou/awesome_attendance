@@ -4,7 +4,7 @@ FactoryBot.define do
     sequence(:name) { |n| "name#{format('%03d', n)}" }
     password { 'foobar' }
     password_confirmation { 'foobar' }
-    sequence(:code) { |n| "code#{n}" }
+    code { nil }
 
     factory :password_nil_user do
       password { nil }

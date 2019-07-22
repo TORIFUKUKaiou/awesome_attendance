@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   subject { user }
 
-  let(:user) { FactoryBot.build(:user) }
+  let(:user) { FactoryBot.build(:user, code: 'code') }
 
   describe 'association' do
     describe 'org' do
@@ -37,7 +37,6 @@ RSpec.describe User, type: :model do
     describe 'code' do
       let(:attribute_name) { :code }
 
-      it { is_expected.to validate_presence_of attribute_name }
       it { is_expected.to validate_uniqueness_of(attribute_name) }
     end
 
