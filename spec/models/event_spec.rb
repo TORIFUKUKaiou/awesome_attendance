@@ -30,6 +30,7 @@ RSpec.describe Event, type: :model do
       let(:attribute_name) { :date }
 
       it { is_expected.to validate_presence_of attribute_name }
+      it { is_expected.to validate_uniqueness_of(attribute_name).scoped_to(:place_id) }
     end
   end
 end
