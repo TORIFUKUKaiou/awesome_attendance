@@ -26,7 +26,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-
+.csv
 
 # https://github.com/github/gitignore/blob/master/Rails.gitignore
 *.rbc
