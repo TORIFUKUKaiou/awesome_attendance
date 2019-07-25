@@ -3,9 +3,9 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= qrcode_tag @user.uri_for_qrcode, module_size: 5 %>
-        <%= @user.org_name %>
-        <%= @user.name %>
+        <%= qrcode_tag @user.uri_for_qrcode, module_size: 5 %><br>
+        所属名：<%= @user.org_name %><br>
+        名前：<%= @user.name %>
       </h1>
     </section>
   </aside>
