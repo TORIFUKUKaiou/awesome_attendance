@@ -1,5 +1,5 @@
 ActiveAdmin.register Token do
-  permit_params :label, :key, :digest_hash
+  permit_params :label, :key
 
   index do
     selectable_column
