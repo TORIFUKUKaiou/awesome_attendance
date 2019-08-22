@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_010012) do
+ActiveRecord::Schema.define(version: 2019_08_22_013959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(version: 2019_07_24_010012) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tokens", force: :cascade do |t|
+    t.string "label", null: false
+    t.string "digest_hash", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["digest_hash"], name: "index_tokens_on_digest_hash", unique: true
+    t.index ["label"], name: "index_tokens_on_label", unique: true
   end
 
   create_table "users", force: :cascade do |t|

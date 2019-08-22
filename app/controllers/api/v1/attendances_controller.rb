@@ -1,4 +1,7 @@
 class Api::V1::AttendancesController < Api::V1::ApiController
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+  before_action :authenticate
+
   def create
     attendance = Attendance.new(create_params)
     if attendance.save
@@ -9,6 +12,20 @@ class Api::V1::AttendancesController < Api::V1::ApiController
   end
 
   private
+
+  def authenticate
+    authenticate_token || render_unauthorized
+  end
+
+  def authenticate_token
+    authenticate_with_http_token do |token|
+      Token.authenticate?(token)
+    end
+  end
+
+  def render_unauthorized
+    render json: { message: 'token invalid' }, status: :unauthorized
+  end
 
   def create_params
     create_params = params.require(:attendance).permit(:code, :place_id)
